@@ -1,0 +1,20 @@
+--ex 04
+
+--Q1
+select [ProductID], Categories.CategoryID ,[CategoryName] from Products inner join Categories on Products.CategoryID = Categories.CategoryID 
+--Q2
+select CategoryName from Products inner join Categories on Products.CategoryID = Categories.CategoryID where Products.ProductID >100
+--Q3
+select [ProductName],[CompanyName] from Products inner join Suppliers on Products.SupplierID= Suppliers.SupplierID
+--Q4
+select [ProductName],[CompanyName] from Products inner join Suppliers on Products.SupplierID= Suppliers.SupplierID where Country ='USA'
+--Q5
+select [ProductName],[CompanyName] from Products inner join Suppliers on Products.SupplierID= Suppliers.SupplierID where Country <> 'Germany'
+--Q6
+select [CompanyName] from Suppliers where HomePage is not NULL
+--Q7
+select [OrderDate] from Orders where OrderID='10408'
+--Q8
+select [ProductName] from Products P INNER JOIN [Order Details] OD on P.ProductID = OD.ProductID INNER JOIN Orders ON Orders.OrderID = OD.OrderID WHERE Orders.OrderID = 10408
+--Q9
+select distinct [CompanyName] from Suppliers S inner join Products P on S.SupplierID = P.SupplierID inner join [Order Details] on [Order Details].ProductID = P.ProductID where [Order Details].OrderID = 10408
