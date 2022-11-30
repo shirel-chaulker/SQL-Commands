@@ -1,0 +1,18 @@
+--Q1
+ create table newTable (itemNumber int not null,itamName nvarchar(max) not null)
+insert into newTable(itemNumber,itamName)select ShipperID,CompanyName from Shippers
+select top 5* from newTable
+drop table newTable
+
+--Q2
+select distinct City into Order2 from Suppliers where (Upper(City) not like 'e%') and (Upper(City) not like '%e%') and ( Upper(City) not like '%e')
+drop table Order2
+select * from Order2
+
+--Q3
+select  CustomerId,OrderId into OrderA from Orders where (Upper(CustomerId) not like 'a%') and (Upper(CustomerId) not like '%a%') and ( Upper(CustomerId) not like '%a')
+select * from OrderA
+
+--Q4
+
+select * from Products tbl1 left outer join  Suppliers tbl2 on tbl1.SupplierID= tbl2.SupplierID left outer join Customers tbl3 on tbl3.City=tbl2.City where ProductName like 'L%'
